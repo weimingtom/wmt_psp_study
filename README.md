@@ -15,3 +15,9 @@ My PSP homebrew software study
 
 ## PPSSPP  
 * https://github.com/hrydgard/ppsspp  
+
+## kene-touhou-mohofu		東方模倣風  
+* https://code.google.com/archive/p/kene-touhou-mohofu/
+
+## LUA_TH		東方PSP  
+* https://psplua.xxxxxxxx.jp  
