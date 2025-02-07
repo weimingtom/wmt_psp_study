@@ -26,3 +26,5 @@ My PSP homebrew software study
 
 ## pspsdk.rar  
 
+## pspautotests    
+* https://github.com/hrydgard/pspautotests  
