@@ -28,3 +28,7 @@ My PSP homebrew software study
 
 ## pspautotests    
 * https://github.com/hrydgard/pspautotests  
+
+## psp-homebrew-library  
+* https://archive.org/details/psp-homebrew-library?page=4
+* https://www.ppsspp.org/docs/getting-started/how-to-get-demos-and-homebrew/  
