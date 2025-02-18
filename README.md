@@ -15,8 +15,8 @@ My PSP homebrew software study
 
 ## PPSSPP  
 * https://github.com/hrydgard/ppsspp
-* https://github.com/OtherCrashOverride/ppsspp-go2
-https://github.com/christianhaitian/ppsspp-go2  
+* https://github.com/OtherCrashOverride/ppsspp-go2  
+https://github.com/christianhaitian/ppsspp-go2    
 
 ## kene-touhou-mohofu		東方模倣風  
 * https://code.google.com/archive/p/kene-touhou-mohofu/
