@@ -11,6 +11,7 @@ see also https://pspdev.github.io/installation/ubuntu.html
 **Don't need to git clone pspdev and psptoolchain, just wget releases tar.gz**   
 https://github.com/pspdev/pspdev/releases/tag/v20200623  
 **If use Xubuntu 20.04, need to wget oldest file**  
+**If use Xubuntu 20.04, need to git checkout -f 3cfacc6 for pspdev src samples**  
 ```
 $ sudo apt-get update
 $ sudo apt-get install build-essential cmake pkgconf libreadline8 libusb-0.1 libgpgme11 libarchive-tools fakeroot
