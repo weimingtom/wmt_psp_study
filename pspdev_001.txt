@@ -1,0 +1,105 @@
+$ sudo apt-get update
+$ sudo apt-get install build-essential cmake pkgconf libreadline8 libusb-0.1 libgpgme11 libarchive-tools fakeroot
+$ gedit ~/.bashrc
+(adding lines to .bashrc file end
+export PSPDEV="$HOME/pspdev"
+export PATH="$PATH:$PSPDEV/bin"
+)
+
+(don't git clone https://github.com/pspdev/psptoolchain, use wget instead)
+(don't git clone https://github.com/pspdev/psptoolchain-allegrex, use wget instead)
+(don't git clone https://github.com/pspdev/psptoolchain-extra, use wget instead)
+(don't git clone https://github.com/pspdev/pspdev, use wget instead)
+
+(NOTE: latest release of pspdev is not good for xubuntu 20.04, GLIBC_2.34 error)
+($ wget https://github.com/pspdev/pspdev/releases/latest/download/pspdev-ubuntu-latest-x86_64.tar.gz
+($ tar xzf pspdev-ubuntu-latest-x86_64.tar.gz
+($ source ~/.bashrc
+($ psp-config --pspdev-path
+(psp-config: /lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.34' not found (required by psp-config)
+
+(v20200623 is good for xubuntu 20.04)
+$ wget https://github.com/pspdev/pspdev/releases/download/v20200623/pspdev-ubuntu-latest.tar.gz
+$ tar xzf pspdev-ubuntu-latest.tar.gz
+$ source ~/.bashrc
+$ psp-config --pspdev-path
+/home/wmt/pspdev
+$ psp-gcc -v
+Using built-in specs.
+COLLECT_GCC=psp-gcc
+COLLECT_LTO_WRAPPER=/home/wmt/pspdev/bin/../libexec/gcc/psp/9.3.0/lto-wrapper
+Target: psp
+Configured with: ../configure --prefix=/home/runner/work/pspdev/pspdev/pspdev --target=psp --enable-languages=c,c++ --enable-lto --with-newlib --enable-cxx-flags=-G0
+Thread model: single
+gcc version 9.3.0 (GCC) 
+
+(not need to build pspsdk)
+($ git clone https://github.com/pspdev/pspsdk
+($ cd pspsdk
+($ git checkout -f 3cfacc6
+($ ./bootstrap
+(Running aclocal:
+(Running autoconf:
+(Running autoheader:
+(Running automake:
+(configure.ac:18: installing './compile'
+(configure.ac:13: installing './install-sh'
+(configure.ac:13: installing './missing'
+(src/atrac3/Makefile.am: installing './depcomp'
+($ source ~/.bashrc
+((not used ./build-and-install.sh)
+($ ./configure
+($ make
+((not need -j8, very fast)
+((not need make doxygen-doc)
+($ make install
+($ find . | grep psp-config
+(./bin/psp-config
+
+$ git clone https://github.com/pspdev/pspsdk
+$ cd pspsdk
+$ git checkout -f 3cfacc6
+$ cd src/samples/gu/cube
+$ make -f Makefile.sample clean
+$ make -f Makefile.sample
+$ ls
+cube.c    cube.o     logo.o    Makefile.sample
+cube.elf  EBOOT.PBP  logo.raw  PARAM.SFO
+$ /home/wmt/work_ppsspp/ppsspp/build/PPSSPPSDL
+(if want to cmake PPSSPPSDL, need to 'git submodule update --init --recursive' and 'mkdir build; cd build; cmake ..; make -j8') 
+$ /home/wmt/work_ppsspp/ppsspp/build/PPSSPPSDL /home/wmt/pspsdk/src/samples/gu/cube
+$ /home/wmt/work_ppsspp/ppsspp/build/PPSSPPSDL `pwd`
+(don't use cube.elf or EBOOT.PBP file path, use directory path instead)
+
+------------
+https://pspdev.github.io/installation/ubuntu.html
+https://pspdev.github.io/pspsdk/
+
+Installation on Ubuntu
+Dependencies
+The PSP SDK requires a couple of dependencies to be installed before use. To install them, run the following command from a terminal:
+
+sudo apt-get update
+
+sudo apt-get install build-essential cmake pkgconf libreadline8 libusb-0.1 libgpgme11 libarchive-tools fakeroot
+
+PSP SDK
+Installing the PSP SDK itself can be done with the following steps:
+
+Download the latest version of the SDK here.
+Extract the downloaded archive into your home directory, resulting in /home/YOURUSERNAME/pspdev being created.
+To make the SDK usable, some environment variables need to be set. The first step in doing so it to open the ~/.bashrc file with the nano text editor using the following command from a terminal:
+ nano ~/.bashrc
+
+Add the following lines at the bottom of the file in the text editor:
+ export PSPDEV="$HOME/pspdev"
+ export PATH="$PATH:$PSPDEV/bin"
+
+Now save and exit by pressing Ctrl+X, then Y and then enter/return.
+Close the current terminal and open a new one.
+From the new terminal, run the following command to confirm everything is set up correctly:
+ psp-config --pspdev-path
+
+That’s it, now the PSP SDK can be used to build PSP software. Check out the How to Use page for a guide on how to do so.
+
+
